@@ -11,6 +11,8 @@ tmp/*
 node_modules
 webfonts
 .codekit-cache
+.sass-cache/
+*.css.map
 
 # Compiled source #
 ###################
