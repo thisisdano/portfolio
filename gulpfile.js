@@ -31,7 +31,7 @@ gulp.task('lint', function() {
 
 // Compile Our Sass
 gulp.task('sass', function() {
-    return gulp.src('css/*.scss')
+    return gulp.src('styles/scss/*.scss')
     	.pipe(sourcemaps.init())
 	    .pipe(sass({
 		  errLogToConsole: true,
@@ -41,7 +41,7 @@ gulp.task('sass', function() {
 	    }).on('error', sass.logError))
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('styles/css'))
         .pipe(bs.stream())
 		.pipe(notify({ message: 'Compiled sass' }));
 });
@@ -63,7 +63,7 @@ gulp.task('sass', function() {
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('js/*.js', ['lint']);
-    gulp.watch('css/*.scss', ['sass']);
+    gulp.watch('styles/scss/*.scss', ['sass']);
     gulp.watch('*.html').on('change', bs.reload);
 });
 
