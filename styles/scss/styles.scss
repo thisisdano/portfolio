@@ -1,23 +1,25 @@
-/* notes */
-/* 100% = 16px = 1em */
-/* 20px = 1.25em */
-/* 24px = 1.5em */
-
-$grid: 8px; 
-$spacer: $grid * 2; 
-$color-blue: #1553EA;
-$color-pink: #FF0F0F;
 
 //$ss-social-regular-dir: '../webfonts/';
 //$ss-social-circle-dir: $ss-social-regular-dir;
 
 @import "bourbon";
 @import "meyer-reset.scss";
+@import "mixins-and-vars.scss";
 //@import "../symbolset/symbolset";
 //@import "../symbolset/ss-social-circle";
 
 
+$size-xxs: 0.7em;
+$size-xs: 0.75em;
+$size-s: 0.85em;
 
+
+
+@mixin size($thisSize) {
+	@include respond-tablet {
+		font-size: $thisSize;
+	}
+}
 
 
 /* 
@@ -28,40 +30,50 @@ BASICS
 --------------
 */
 
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+.no-mobile {
+	@include respond-mobile {
+		display: none;
+	}
+}
+
 body { 
 	margin: 0;
-	background: rgb(255,255,255) repeat;
+	background-color: white;
 	color: $color-blue;
-	font: 80%/1.5 'Roboto', sans-serif;
+	font: 93%/1.55 'Roboto', sans-serif;
 	overflow-x: hidden;
 }
+
 #hello { 
-	max-width: 982px;
 	margin: 0 auto;
-	padding: 0 0 0 0;
+	padding: 0 $grid *2;
+	width: auto;
+	max-width: $width-desktop + ($grid * 4);
+	@include respond-tablet {
+		padding: 0 $grid * 2;
+	}
 }
 
 a:link, a:visited { 
 	color: $color-pink;
 }
+
 a:hover { 
 	color: $color-blue;
 }
+
 a:active {}
 
 p { 
-	margin: $spacer 0;
-	font-size: 1.13em;
-	line-height: 1.55em;
+	margin: 0;
 	clear: both;
 }
-ul { 
-	margin-top: 2px;
-}
-li { 
-	font-size: .6em;
-	line-height: 1.6em;
-}
+
 em { 
 	font-style: italic;
 }
@@ -81,6 +93,28 @@ h1 {
 
 h1, h2, h3, strong {
 	font-weight: normal;
+}
+
+img {
+	display: block;
+	clear: both;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	@include respond-tablet {
+		max-width: $width-desktop;
+		max-height: $width-desktop / 2;
+		width: auto !important;
+		height: auto !important;
+	}
+}
+
+figure {
+	margin: 0;
+	@include respond-tablet {
+		width: auto !important;
+		height: auto !important;
+	}
 }
 
 /*
@@ -104,16 +138,7 @@ strong a, p a, .links a {
 }
 */
 
-.o {
-	display: inline-block;
-	text-indent: -1000px;
-	overflow: hidden;
-	width: .7em;
-	height: .7em;
-	background-color: $color-blue;
-	border-radius: 10em;
-	padding-left: .1em;
-}
+
 
 /* 
 --------------
@@ -126,58 +151,47 @@ INTRO + THUMBNAILS
 .intro { 
 	overflow: auto;
 	width: 100%;
-	margin: $spacer 0 0 0;
-	padding: $spacer 0;
 	position: relative;
-}
-.intro .bio { 
-	margin: 0 $grid $grid * 3 $grid;
-	clear: both;
-	z-index: 100;
-	position: relative;
-}
-.intro figure {
-	position: absolute;
-	top: -38px;
-	left: -56px;
-}
-.intro figure img { 
-	width: 400px;
-	height: auto;
+	padding-top: $spacer;
+	@include respond-tablet {
+		margin: $spacer 0 0 0;
+		padding: $spacer 0;
+	}
 }
 
-
-
-.intro ul.info { 
-	z-index: 100;
-	position: relative;
-}
-.intro ul.info li { 
-	//font-weight: bold;
-	margin-left: $grid;
-	strong { color: $color-pink; }
-}
-
-.intro .links {
-	padding-top: $grid;
-}
-
-
-.links {
+.contact {
 	border-top: 1px solid;
-	padding-top: 6px;
+	margin-top: $grid;
+	padding-top: $grid;
+	@include respond-tablet {
+		padding-top: 6px;
+	}
 }
 
-.links li {
-	font-size: .7em;
-	display: inline;
-	padding-right: .3em;
-	//font-weight: bold;
+
+.tabbed-item {
+	@include size($size-xxs);
+	display: inline-block;
+	padding-right: $spacer;
+	@include respond-desktop {
+		padding-right: .3em;
+	}
 }
 
-.intro ul.info li.ss-icon {
-	margin-left: $grid;
-	+ li.ss-icon { margin-left: $grid/2;}
+.email {
+	position: relative;
+	top: -1px;
+	display: block;
+	margin-top: $grid;
+	@include respond-tablet {
+		display: inline-block;
+		margin-top: 0;
+	}
+}
+
+.fun {
+	position: relative;
+	top: 2px;
 }
 
 .overview {
@@ -185,33 +199,51 @@ INTRO + THUMBNAILS
 }
 
 .overview-item {
+	@include size($size-s);
 	border-top: 1px solid;
 	padding-top: $grid;
 	margin-top: 5px;
-	font-size: .85em;
 }
 
 .item-date {
-	padding-right: .3em;
-	width: 3em;
+	@include size($size-xs);
 	display: inline-block;
-	font-size: .75em;
-	top: -2px;
 	position: relative;
+	width: 3.4em;
+	@include respond-tablet {
+		padding-right: .3em;
+		top: -2px;
+	}
 }
 
 .item-tags {
-	float: right;
-	overflow: auto;
-	text-align: right;
-	top: -2px;
-	position: relative;
+	padding-left: 3.6em;
+	@include respond-tablet {
+		float: right;
+		overflow: auto;
+		text-align: right;
+		top: -2px;
+		position: relative;
+		padding-left: 0;
+	}
 }
 
 .item-tag {
-	font-size: .75em;
+	@include size($size-xs);
+	white-space: nowrap;
+	&:after {
+		content: ', ';
+		@include respond-tablet {
+			content: none;
+		}
+	}
+	&:last-child::after {
+		content: none;
+	}
 	& + .item-tag {
-		padding-left: .75em;
+		@include respond-tablet {
+			padding-left: .75em;
+		}
 	}
 }
 
@@ -219,9 +251,7 @@ INTRO + THUMBNAILS
 	margin-bottom: $grid * 2;
 }
 
-.intro p {
-	font-size: 1em;
-}
+
 
 /* 
 --------------
@@ -233,159 +263,135 @@ SECTIONS
 
 .section { 
 	clear: both;
-	overflow: hidden;
-	margin: 0;
-	padding: $spacer $grid $grid $grid;
-	max-width: 990px;
-	border-top: 1px solid; 
+	//overflow: hidden;
+	margin-top: $grid * 6; 
+	padding-top: $grid * 2;
+	@include respond-tablet {
+		border-top: 1px solid;
+		margin: 0;
+		padding: $spacer $grid $grid $grid;
+	}
 }
-.section h2 { 
-	float: left;
-	width: 50%;
-	line-height: 1.1;
-	margin-bottom: $grid;
-} 
-.section ul { 
-	float: right;
-	width: 50%;
-	margin-right: -$grid;
-	margin-bottom: $grid;
-}
-.section ul.specs li { 
-	color: $color-blue; 
+
+.project-title { 
 	border-bottom: 1px solid;
-	margin-left: $grid * 4;
-	margin-bottom: $grid / 2;
-	padding-bottom: $grid / 2;
-}
+	padding-bottom: $grid * 2;
+	/*
+	&:before {
+		content: '';
+		display: block;
+		position: relative;
+		top: -$grid * 2;
+		width: $grid * 2;
+		height: $grid * 2;
+		border-radius: $grid * 3;
+		background-color: $color-blue;
+		left: -1px;
+	}
+	*/
+	@include respond-tablet {
+		border-bottom: none;
+		padding-bottom: 0;
+		float: left;
+		width: 50%;
+		line-height: 1.1;
+		margin-bottom: $grid;
+	}
+} 
 
-.section ul.nav {
-	float: none;
-	width: 100%;
-	clear: both;
-	overflow: auto;
-	padding-bottom: 0;
-}
-
-.section ul.nav li {
-	float: left;
-	width: 33.3333333333333%;
-	padding: 0;
-	clear: none;
-}
-
-li.hidden { visibility: hidden; }
-
-.section ul + ul { 
-	float: right;  padding: 5px 0 20px 0;
-}
-.section ul + ul li { 
-	display: inline;
-}
-.section ul + ul li a { 
-	display: block;
-	float: none;
-	text-align: center;
-	text-decoration: none;
-	padding: $grid;
-	border: 1px solid $color-blue;
-	border-radius: 2px;
-	font-size: 1.8em;
-	font-weight: normal;
-	margin-right: $grid /2;
-	color: white;
-	background-color: $color-blue;
-	&:hover {
-		background-color: $color-pink;
-		border-color: $color-pink
+.specs { 
+	margin-top: $grid;
+	@include respond-tablet {
+		margin-top: 0;
+		float: right;
+		width: 50%;
+		margin-right: -$grid;
+		margin-bottom: $grid;
 	}
 }
 
-.section ul + ul li.top a { 
-	color: $color-blue;
-	background-color: transparent;
-	&:hover {
-		background-color: transparent;
-		color: $color-pink;
+.specs li { 
+	@include respond-mobile {
+		display: inline;
+		white-space: nowrap;
+		&:after {
+			content: ', ';
+		}
+		&:last-child::after {
+			content: none;
+		}
+	}
+	@include respond-tablet {
+		color: $color-blue; 
+		border-bottom: 1px solid;
+		margin-left: $grid * 4;
+		margin-bottom: $grid / 2;
+		padding-bottom: $grid / 2;
 	}
 }
 
-.section ul + ul li + li a { 
-	margin-right: 0;
-	margin-left: $grid /2;
-}
 
-.section ul + ul li + li + li a { 
-	margin-left: $grid;
-}
-
-.section .featured-image {
-	clear:both;
-	margin: $spacer 0 $spacer * 2 0;
-	cursor: pointer;
-	display: none;
-}
-
-.email {
-	position: relative;
-	top: -1px;
-}
-
-.fun {
-	position: relative;
-	top: 2px;
+.section-content {
+	@include respond-mobile {
+		display: flex;
+		flex-wrap: wrap;
+		.desc {
+			order: -1;
+		}
+	}
 }
 
 .featured-image {
-	height: $grid * 65 !important;
-}
-
-.section img.featured {
-	display: block;
-	clear: both;
-	//border: 1px solid rgb(138,134,145);
-	//box-shadow: 0 0 5px rgba(0,0,0,.15);
-	max-width: 990px;
-	max-height: 495px;
-	width: auto !important;
-}
-
-figure {
-	margin: 0;
-	width: auto !important;
-	height: auto !important;
+	clear:both;
+	margin: $grid * 3 0 $spacer * 2 0;
+	cursor: pointer;
+	width: 100% !important;
+//	display: none;
+	@include respond-tablet {
+		height: $grid * 65 !important;
+		margin-top: $spacer;
+	}
 }
 
 .slide {
 	position: relative;
-}
-
-span.typeface {
-	font-size: .8em;
-	font-style: italic;
-}
-
-/*
-.slide:hover {
-	&:after {
-		content: '>';
-		position: absolute;
-		right: 16px;
-		top: 50%;
-		margin-top: -16px;
-		font-size: 2em;
+	@include respond-mobile {
+	    position: relative !important;
+	    display: block !important;
+	    opacity: 1 !important;
+	    top: auto !important;
+	    left: auto !important;
+	    width: 100% !important;
+	    height: auto !important;
+	    padding-bottom: $grid * 3;
+	    border-top: 1px solid;
+	    padding-top: $grid;
 	}
 }
-*/
+
+span.note {
+	@include size($size-s);
+	//font-size: .8em;
+	font-style: italic;
+	@include respond-mobile {
+		display: block;
+	}
+}
+
 
 figcaption {
-	font-size: .7em;
-	padding-top: $grid * 2;
+	//@include size($size-xs);
+	font-size: $size-xs;
+	padding-top: $grid;
 	display: block;
+	@include respond-tablet {
+		padding-top: $grid * 2;
+	}
 }
 
 figcaption strong {
-	font-size: .75em;
+	@include size($size-xs);
+	//font-size: .75em;
 	display: inline-block;
 	width: 2em;
 }
@@ -397,13 +403,24 @@ img.uto {
 	display: block;
 }
 
+.desc {
+	margin-top: $grid * 2;
+	@include respond-tablet {
+		margin-top: 0;
+	}
+}
+
 .section p span { 
 	display: block;
-	font-size: .7em;
-	margin-top: $spacer;
+	font-size: $size-xs;
 	line-height: 1.5;
 	font-style: italic;
+	margin-top: $grid;
+	@include respond-tablet {
+		margin-top: $spacer;
+	}
 }
+
 .section p + ul { 
 	float: none;
 	width: 100%; 
@@ -441,13 +458,30 @@ FOOTER
 
 #footer { 
 	margin: $grid * 12 $grid $spacer $grid;
+	&:before {
+		@include respond-mobile {
+			content: '';
+			display: block;
+			position: relative;
+			top: -$grid * 3;
+			width: $grid * 2;
+			height: $grid * 2;
+			border-radius: $grid * 3;
+			background-color: $color-blue;
+			left: -1px;
+		}
+	}
 }
 #footer p { 
 	margin: 0;
 	font-size: .8em;
 } 
 p.nav { 
-	text-align: right;
+	padding-top: $grid * 2;
+	@include respond-tablet {
+		padding-top: 0;
+		text-align: right;
+	}
 }
 
 .copy {
@@ -477,6 +511,7 @@ RESPOND
 		float: left;
 	}
 	.section {
+		overflow: hidden;
 		padding: $spacer;
 		ul { margin-right: -$spacer; }
 		ul.nav {
@@ -509,6 +544,7 @@ RESPOND
 		padding-bottom: 0;
 		width: 130px;
 		float: right;
+		font-size: 12px
 	}
 	ul.thumbnails { display: none; }
 	.section p+ul li {
@@ -528,7 +564,8 @@ RESPOND
 	body { 
 		font-size: 120%;
 	}
-	p { font-size: .8em; }
+	.desc { font-size: .8em; }
+	
 	.intro .bio { 
 		margin: 0 0 $spacer * 2 0;
 	}
