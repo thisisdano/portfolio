@@ -1,0 +1,733 @@
+/* notes */
+/* 100% = 16px = 1em */
+/* 20px = 1.25em */
+/* 24px = 1.5em */
+
+$grid: 8px; 
+$spacer: $grid * 2; 
+$color-blue: #1553EA;
+$color-pink: #FF0F0F;
+
+//$ss-social-regular-dir: '../webfonts/';
+//$ss-social-circle-dir: $ss-social-regular-dir;
+
+@import "bourbon";
+//@import "../symbolset/symbolset";
+//@import "../symbolset/ss-social-circle";
+
+
+/* Eric Meyer's Most Excellent CSS Reset */
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+
+ul li, ol li {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* End CSS Reset */
+
+
+
+/* 
+--------------
+
+BASICS
+
+--------------
+*/
+
+body { 
+	margin: 0;
+	background: rgb(255,255,255) repeat;
+	color: $color-blue;
+	font: 80%/1.5 'Roboto', sans-serif;
+	overflow-x: hidden;
+}
+#hello { 
+	max-width: 982px;
+	margin: 0 auto;
+	padding: 0 0 0 0;
+}
+
+a:link, a:visited { 
+	color: $color-pink;
+}
+a:hover { 
+	color: $color-blue;
+}
+a:active {}
+
+p { 
+	margin: $spacer 0;
+	font-size: 1.13em;
+	line-height: 1.55em;
+	clear: both;
+}
+ul { 
+	margin-top: 2px;
+}
+li { 
+	font-size: .6em;
+	line-height: 1.6em;
+}
+em { 
+	font-style: italic;
+}
+
+h1 { 
+	margin: $grid * 11 auto $grid * 17 auto; 
+	font-weight: normal; 
+	font-size: 2.4em;
+	border-bottom: 3px solid;
+	width: 7.3em; 
+	text-align: center; 
+	transform: rotate(-45deg);
+	position: relative;
+	color: rgba(0,0,0,.8);
+	display: none;
+}
+
+h1, h2, h3, strong {
+	font-weight: normal;
+}
+
+/*
+strong a, p a, .links a {
+	text-decoration: none;
+	//border-bottom: 5px solid $color-pink;
+    box-shadow: inset 0 -4px 0 $color-pink;
+	padding-bottom: 0;
+	display: inline-block;
+	top: -1px;
+	position: relative;
+	&:hover {
+		border-bottom-color: $color-blue;
+	    box-shadow: inset 0 -5px 0 $color-blue;
+	}
+	&:active {
+		color: black;
+		border-bottom-color: black;
+	    box-shadow: inset 0 -5px 0 black;
+	}
+}
+*/
+
+.o {
+	display: inline-block;
+	text-indent: -1000px;
+	overflow: hidden;
+	width: .7em;
+	height: .7em;
+	background-color: $color-blue;
+	border-radius: 10em;
+	padding-left: .1em;
+}
+
+/* 
+--------------
+
+INTRO + THUMBNAILS
+
+--------------
+*/
+
+.intro { 
+	overflow: auto;
+	width: 100%;
+	margin: $spacer 0 0 0;
+	padding: $spacer 0;
+	position: relative;
+}
+.intro .bio { 
+	margin: 0 $grid $grid * 3 $grid;
+	clear: both;
+	z-index: 100;
+	position: relative;
+}
+.intro figure {
+	position: absolute;
+	top: -38px;
+	left: -56px;
+}
+.intro figure img { 
+	width: 400px;
+	height: auto;
+}
+
+
+
+.intro ul.info { 
+	z-index: 100;
+	position: relative;
+}
+.intro ul.info li { 
+	//font-weight: bold;
+	margin-left: $grid;
+	strong { color: $color-pink; }
+}
+
+.intro .links {
+	padding-top: $grid;
+}
+
+
+.links {
+	border-top: 1px solid;
+	padding-top: 6px;
+}
+
+.links li {
+	font-size: .7em;
+	display: inline;
+	padding-right: .3em;
+	//font-weight: bold;
+}
+
+.intro ul.info li.ss-icon {
+	margin-left: $grid;
+	+ li.ss-icon { margin-left: $grid/2;}
+}
+
+.overview {
+	padding-top: $grid * 6;
+}
+
+.overview-item {
+	border-top: 1px solid;
+	padding-top: $grid;
+	margin-top: 5px;
+	font-size: .85em;
+}
+
+.item-date {
+	padding-right: .3em;
+	width: 3em;
+	display: inline-block;
+	font-size: .75em;
+	top: -2px;
+	position: relative;
+}
+
+.item-tags {
+	float: right;
+	overflow: auto;
+	text-align: right;
+	top: -2px;
+	position: relative;
+}
+
+.item-tag {
+	font-size: .75em;
+	& + .item-tag {
+		padding-left: .75em;
+	}
+}
+
+.section-title {
+	margin-bottom: $grid * 2;
+}
+
+.intro p {
+	font-size: 1em;
+}
+
+/* 
+--------------
+
+SECTIONS
+
+--------------
+*/
+
+.section { 
+	clear: both;
+	overflow: hidden;
+	margin: 0;
+	padding: $spacer $grid $grid $grid;
+	max-width: 990px;
+	border-top: 1px solid; 
+}
+.section h2 { 
+	float: left;
+	width: 50%;
+	line-height: 1.1;
+	margin-bottom: $grid;
+} 
+.section ul { 
+	float: right;
+	width: 50%;
+	margin-right: -$grid;
+	margin-bottom: $grid;
+}
+.section ul.specs li { 
+	color: $color-blue; 
+	border-bottom: 1px solid;
+	margin-left: $grid * 4;
+	margin-bottom: $grid / 2;
+	padding-bottom: $grid / 2;
+}
+
+.section ul.nav {
+	float: none;
+	width: 100%;
+	clear: both;
+	overflow: auto;
+	padding-bottom: 0;
+}
+
+.section ul.nav li {
+	float: left;
+	width: 33.3333333333333%;
+	padding: 0;
+	clear: none;
+}
+
+li.hidden { visibility: hidden; }
+
+.section ul + ul { 
+	float: right;  padding: 5px 0 20px 0;
+}
+.section ul + ul li { 
+	display: inline;
+}
+.section ul + ul li a { 
+	display: block;
+	float: none;
+	text-align: center;
+	text-decoration: none;
+	padding: $grid;
+	border: 1px solid $color-blue;
+	border-radius: 2px;
+	font-size: 1.8em;
+	font-weight: normal;
+	margin-right: $grid /2;
+	color: white;
+	background-color: $color-blue;
+	&:hover {
+		background-color: $color-pink;
+		border-color: $color-pink
+	}
+}
+
+.section ul + ul li.top a { 
+	color: $color-blue;
+	background-color: transparent;
+	&:hover {
+		background-color: transparent;
+		color: $color-pink;
+	}
+}
+
+.section ul + ul li + li a { 
+	margin-right: 0;
+	margin-left: $grid /2;
+}
+
+.section ul + ul li + li + li a { 
+	margin-left: $grid;
+}
+
+.section .featured-image {
+	clear:both;
+	margin: $spacer 0 $spacer * 2 0;
+	cursor: pointer;
+	display: none;
+}
+
+.email {
+	position: relative;
+	top: -1px;
+}
+
+.fun {
+	position: relative;
+	top: 2px;
+}
+
+.featured-image {
+	height: $grid * 65 !important;
+}
+
+.section img.featured {
+	display: block;
+	clear: both;
+	//border: 1px solid rgb(138,134,145);
+	//box-shadow: 0 0 5px rgba(0,0,0,.15);
+	max-width: 990px;
+	max-height: 495px;
+	width: auto !important;
+}
+
+figure {
+	margin: 0;
+	width: auto !important;
+	height: auto !important;
+}
+
+.slide {
+	position: relative;
+}
+
+span.typeface {
+	font-size: .8em;
+	font-style: italic;
+}
+
+/*
+.slide:hover {
+	&:after {
+		content: '>';
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		margin-top: -16px;
+		font-size: 2em;
+	}
+}
+*/
+
+figcaption {
+	font-size: .7em;
+	padding-top: $grid * 2;
+	display: block;
+}
+
+figcaption strong {
+	font-size: .75em;
+	display: inline-block;
+	width: 2em;
+}
+
+img.uto {
+	max-width: 100%;
+	height: auto;
+	margin-left: auto;
+	display: block;
+}
+
+.section p span { 
+	display: block;
+	font-size: .7em;
+	margin-top: $spacer;
+	line-height: 1.5;
+	font-style: italic;
+}
+.section p + ul { 
+	float: none;
+	width: 100%; 
+	overflow: hidden;
+	margin-bottom: 0;
+}
+.section p + ul li { 
+	float: right;
+	padding: 0 0 0 0;
+	margin-bottom: $grid;
+	width: auto;
+	max-width: 100%;
+	//border: 1px solid; 
+}
+
+.section p + ul li:last-child { 
+	margin-bottom: 0;
+}
+
+.section p + ul li a:link img, .section p + ul li a:visited img { 
+	max-width: 100%;
+	height: auto;
+	display: block;
+	}
+.section p + ul li a:hover img { }
+
+
+/* 
+--------------
+
+FOOTER
+
+--------------
+*/
+
+#footer { 
+	margin: $grid * 12 $grid $spacer $grid;
+}
+#footer p { 
+	margin: 0;
+	font-size: .8em;
+} 
+p.nav { 
+	text-align: right;
+}
+
+.copy {
+	display: none;
+}
+
+/* 
+--------------
+
+RESPOND
+
+--------------
+*/
+
+@media only screen and (min-width: 640px) {
+	body { 
+		font-size: 100%;
+	}
+	
+	.intro .bio { padding-top: $grid * 4; }
+	
+	.intro .bio, .section p { 
+		margin: 0 $grid * 4 $spacer * 2 25%;
+	}
+	h1 { 
+		margin: 104px 0px 120px -56px;
+		float: left;
+	}
+	.section {
+		padding: $spacer;
+		ul { margin-right: -$spacer; }
+		ul.nav {
+			$nav-width: 75%;
+			width: $nav-width;
+			margin-left: 100% - $nav-width;
+			padding-top: $grid * 7;
+		}
+		h2 {
+			font-size: 3em;
+			line-height: 1; 
+			margin-bottom: 0; 
+		}
+		ul.specs { 
+			margin-top: $spacer; 
+			margin-bottom: $grid * 4;
+		}
+	}
+	.featured-image + p {
+		margin-top: $grid * 4;
+	}
+	#t2t .featured-image {
+		clear: both;
+		height: 200px;
+	} 
+	.section ul.specs li { 
+		transform: rotate(-45deg);
+		margin-left: -64px;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		width: 130px;
+		float: right;
+	}
+	ul.thumbnails { display: none; }
+	.section p+ul li {
+		margin-bottom: $spacer;
+	}
+	footer {
+		padding: $spacer;
+	}
+	.intro ul.info li.ss-icon {
+		margin-left: 0;
+		+ li.ss-icon { margin-left: $grid/2;}
+	}
+	//.section p + ul li:first-child { max-width: 50%; }
+}
+
+@media only screen and (min-width: 1025px) {
+	body { 
+		font-size: 120%;
+	}
+	p { font-size: .8em; }
+	.intro .bio { 
+		margin: 0 0 $spacer * 2 0;
+	}
+	h1 { 
+		margin: 104px 32px 120px -184px;
+		float: left;
+	}
+	.intro ul.info li { 
+		margin-left: 0;
+	}
+	ul.thumbnails { 
+		padding: 54px 0;
+		display: block;
+	}
+	ul.thumbnails img { 
+		height: auto;
+		width: auto;
+	}
+	ul.thumbnails li { 
+		min-height: 288px;
+		max-width: 155px;
+		a img { width: 100%; }
+	}
+	.section { 
+		margin-top: $spacer * 2;
+		padding-bottom: $spacer;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.section h2 { 
+		width: 60%;
+		padding: 14px 0 0 0;
+		margin-bottom: $grid * 6;
+		font-size: 1em;
+		line-height: 1.3; 
+	}
+	.section p { 
+		margin: 0;
+		float: none;
+		clear: both;
+		//font-weight: 800;
+		padding-top: $grid * 2;
+	    column-count: 2;
+	    column-gap: $grid * 5;
+	    span {
+	        margin-top: 1px;
+		    //border-top: 1px solid;
+		    padding-top: $grid / 2;
+	    }	
+	}
+	.section .featured-image {
+		display: block; 
+		float: left;
+	}
+	#t2t .featured-image {
+		height: 324px;
+		margin: 0 0 0 0;
+		margin-top: $grid * 5;
+	} 
+		
+	.section ul { 
+		width: auto;
+		margin-right: 0;
+		float: left;
+		padding: $grid 0 0 0;
+		margin-bottom: 0;
+	}
+	.section ul.specs { margin-top: 0; padding-left: $grid * 8; margin-right: -18px; float: right; }
+	.section ul.nav {
+		float: right;
+		width: auto;
+		clear: none;
+		overflow: auto;
+		padding-bottom: 0;
+		margin-left: 0;
+		margin-bottom: $spacer;
+		padding-top: $grid;
+		display: none;
+	}
+	.section ul.nav li { 
+		width: auto; 
+		padding: 0 $grid / 4; 
+		&:last-child { padding-right: 0; }
+		a { font-size: 1.2em; }
+	}
+
+	.section + .section ul.nav li {
+		width: auto;
+	}
+
+	div.section:last-child ul.nav li {
+		width: auto;
+	}
+
+	.section ul + ul li a { 
+		width: 4.5em;
+		float: left;
+		margin-right: 0;
+	}
+
+	.section ul + ul li + li a { 
+		margin-left:0;
+	}
+	.section ul + ul li + li + li a { 
+		margin-left: 0;
+	}
+	.section ul li {
+		float: left;
+		width: 130px;
+	}
+	.section ul.specs li { 
+		transform: rotate(-45deg);
+		margin-left: -64px;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+	.section p { clear: left; }
+
+	.section p + ul { 
+		float: none;
+		width: auto; 
+		overflow: auto;
+		margin-top: $grid * 5; 
+	}
+	div.uto { display: none; }
+	.section p + ul li { 
+		padding: 0 10px 10px 0;
+		border: none; 
+		margin-bottom: 0;
+		float: left;
+		height: 133px;
+		width: auto;
+	}
+	.section p + ul li a:link img, .section p + ul li a:visited img { 
+		border: 1px solid transparent;
+		height: 133px;
+		width: auto;
+	}
+	.section p + ul li a:hover img { 
+		border: 1px solid $color-blue;
+	}
+	
+	#footer {
+		padding: $spacer 0; 
+		margin: $grid * 6 0 $grid * 4 0;
+		font-size: .75em;
+	}
+
+}
