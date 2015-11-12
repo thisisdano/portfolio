@@ -8,3 +8,5 @@ _site/
 .sass-cache
 tmp/*
 .jekyll-metadata
+node_modules
+webfonts
