@@ -356,6 +356,12 @@ SECTIONS
 			order: -1;
 		}
 	}
+	@include respond-tablet { 
+		margin-top: $grid * 11;
+	}
+	@include respond-desktop { 
+		margin-top: 0;
+	}
 }
 
 .featured-image {
@@ -366,7 +372,7 @@ SECTIONS
 //	display: none;
 	@include respond-tablet {
 		height: $grid * 50 !important;
-		margin-top: $grid * 11;
+		margin-top: 0;
 		margin-bottom: $spacer * 2;
 	}
 	@include respond-desktop {
