@@ -158,6 +158,7 @@ INTRO + THUMBNAILS
 	width: 100%;
 	position: relative;
 	padding-top: $spacer;
+	padding-bottom: $grid * 4;
 	@include respond-tablet {
 		margin: $spacer 0 0 0;
 		padding: $spacer 0 $grid * 6;
@@ -269,8 +270,13 @@ SECTIONS
 .section { 
 	clear: both;
 	//overflow: hidden;
-	margin-top: $grid * 6; 
 	padding-top: $grid * 2;
+	@include respond-mobile {
+		border-top: $grid * 5 solid;
+		margin-top: $grid * 3;
+		margin: 0 (-$grid * 2) 0; 
+		padding: $grid * 4 $grid * 2 0;
+	}
 	@include respond-tablet {
 		border-top: 1px solid;
 		margin: 0;
@@ -279,8 +285,12 @@ SECTIONS
 }
 
 .project-title { 
-	border-bottom: 1px solid;
-	padding-bottom: $grid * 2;
+	@include respond-mobile {
+		padding-bottom: $grid * 1;
+		font-size: 1.3em;
+	    line-height: 1.3;	
+	    //border-bottom: 1px solid;
+	}
 	/*
 	&:before {
 		content: '';
@@ -305,7 +315,7 @@ SECTIONS
 } 
 
 .specs { 
-	margin-top: $grid;
+	margin-top: 0;
 	@include respond-tablet {
 		margin-top: 0;
 		float: right;
@@ -317,8 +327,10 @@ SECTIONS
 
 .specs li { 
 	@include respond-mobile {
-		display: inline;
+		display: none;
 		white-space: nowrap;
+		font-size: $size-xs;
+		font-style: italic;
 		&:after {
 			content: ', ';
 		}
@@ -348,13 +360,14 @@ SECTIONS
 
 .featured-image {
 	clear:both;
-	margin: $grid * 3 0 $spacer * 2 0;
+	margin: $grid * 3 0 $grid * 2 0;
 	cursor: pointer;
 	width: 100% !important;
 //	display: none;
 	@include respond-tablet {
 		height: $grid * 50 !important;
 		margin-top: $grid * 11;
+		margin-bottom: $spacer * 2;
 	}
 	@include respond-desktop {
 		margin-top: $spacer;
