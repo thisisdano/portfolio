@@ -55,7 +55,12 @@ body {
 	width: auto;
 	max-width: $width-desktop + ($grid * 4);
 	@include respond-tablet {
+		padding: 0 $grid * 4;
+		max-width: 768px;
+	}
+	@include respond-desktop {
 		padding: 0 $grid * 2;
+		max-width: $width-desktop + ($grid * 4);
 	}
 }
 
@@ -104,7 +109,7 @@ img {
 	@include respond-tablet {
 		max-width: $width-desktop;
 		max-height: $width-desktop / 2;
-		width: auto !important;
+		width: 100% !important;
 		height: auto !important;
 	}
 }
@@ -112,7 +117,7 @@ img {
 figure {
 	margin: 0;
 	@include respond-tablet {
-		width: auto !important;
+		width: 100% !important;
 		height: auto !important;
 	}
 }
@@ -155,7 +160,7 @@ INTRO + THUMBNAILS
 	padding-top: $spacer;
 	@include respond-tablet {
 		margin: $spacer 0 0 0;
-		padding: $spacer 0;
+		padding: $spacer 0 $grid * 6;
 	}
 }
 
@@ -293,7 +298,7 @@ SECTIONS
 		border-bottom: none;
 		padding-bottom: 0;
 		float: left;
-		width: 50%;
+		width: 60%;
 		line-height: 1.1;
 		margin-bottom: $grid;
 	}
@@ -304,7 +309,7 @@ SECTIONS
 	@include respond-tablet {
 		margin-top: 0;
 		float: right;
-		width: 50%;
+		width: 40%;
 		margin-right: -$grid;
 		margin-bottom: $grid;
 	}
@@ -348,8 +353,12 @@ SECTIONS
 	width: 100% !important;
 //	display: none;
 	@include respond-tablet {
-		height: $grid * 65 !important;
+		height: $grid * 50 !important;
+		margin-top: $grid * 11;
+	}
+	@include respond-desktop {
 		margin-top: $spacer;
+		height: $grid * 65 !important;
 	}
 }
 
@@ -496,15 +505,14 @@ RESPOND
 --------------
 */
 
-@media only screen and (min-width: 640px) {
-	body { 
-		font-size: 100%;
-	}
+@include respond-tablet {
+	body { font-size: 100%; }
 	
 	.intro .bio { padding-top: $grid * 4; }
 	
-	.intro .bio, .section p { 
-		margin: 0 $grid * 4 $spacer * 2 25%;
+	.intro .bio, 
+	.section p { 
+		margin: 0 0 $spacer * 2 0;
 	}
 	h1 { 
 		margin: 104px 0px 120px -56px;
@@ -512,8 +520,10 @@ RESPOND
 	}
 	.section {
 		overflow: hidden;
-		padding: $spacer;
-		ul { margin-right: -$spacer; }
+		padding: $spacer 0;
+		ul { 
+			margin-right: -7px; 
+		}
 		ul.nav {
 			$nav-width: 75%;
 			width: $nav-width;
@@ -521,12 +531,11 @@ RESPOND
 			padding-top: $grid * 7;
 		}
 		h2 {
-			font-size: 3em;
 			line-height: 1; 
 			margin-bottom: 0; 
 		}
 		ul.specs { 
-			margin-top: $spacer; 
+			margin-top: 3px; 
 			margin-bottom: $grid * 4;
 		}
 	}
@@ -539,19 +548,21 @@ RESPOND
 	} 
 	.section ul.specs li { 
 		transform: rotate(-45deg);
-		margin-left: -64px;
+		margin-left: -$grid * 6;
 		margin-bottom: 0;
-		padding-bottom: 0;
-		width: 130px;
+		padding-bottom: 2px;
+		width: $grid * 12; //112px;
 		float: right;
-		font-size: 12px
+		font-size: 10px
 	}
 	ul.thumbnails { display: none; }
 	.section p+ul li {
 		margin-bottom: $spacer;
 	}
-	footer {
-		padding: $spacer;
+	#footer {
+		padding: 0;
+		margin: 0;
+		padding-bottom: $grid * 3;
 	}
 	.intro ul.info li.ss-icon {
 		margin-left: 0;
@@ -560,7 +571,7 @@ RESPOND
 	//.section p + ul li:first-child { max-width: 50%; }
 }
 
-@media only screen and (min-width: 1025px) {
+@include respond-desktop {
 	body { 
 		font-size: 120%;
 	}
@@ -633,7 +644,20 @@ RESPOND
 		padding: $grid 0 0 0;
 		margin-bottom: 0;
 	}
-	.section ul.specs { margin-top: 0; padding-left: $grid * 8; margin-right: -18px; float: right; }
+	.section ul.specs { 
+		margin-top: 0; 
+		padding-left: $grid * 8; 
+		margin-right: -18px; 
+		float: right; 
+	}
+
+	.section ul.specs li { 
+		width: 130px;
+		font-size: 12px;
+		padding-bottom: 0;
+		margin-left: -64px;
+	}
+
 	.section ul.nav {
 		float: right;
 		width: auto;
