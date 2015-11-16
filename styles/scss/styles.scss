@@ -84,8 +84,14 @@ a.button {
 	border-radius: 2px;
 	margin-top: $grid * 3;
 	font-size: $size-s;
+	@include respond-tablet {
+		margin-top: $grid * 3;
+		margin-bottom: $grid * 3;
+		float: left;
+	}
 	@include respond-desktop {
 		margin-top: $grid * 6;
+		margin-bottom: 0;
 		float: left;
 	}
 }
