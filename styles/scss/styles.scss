@@ -13,6 +13,7 @@ $size-xxs: 0.7em;
 $size-xs: 0.75em;
 $size-s: 0.85em;
 
+$weight-bold: 700;
 
 
 @mixin size($thisSize) {
@@ -73,6 +74,17 @@ a:hover {
 }
 
 a:active {}
+
+a.button {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid;
+	padding: 1em;
+	border-radius: 2px;
+	margin-top: $grid * 3;
+	font-size: $size-s;
+}
 
 p { 
 	margin: 0;
@@ -364,6 +376,67 @@ SECTIONS
 	}
 }
 
+h3.body {
+	margin-top: 1.5em;
+    font-size: 1.3em;
+    border-bottom: 1px solid;
+    padding-bottom: .5em;
+}
+
+h4.body {
+	margin-top: 1.5em;
+	font-weight: normal;
+	font-weight: $weight-bold;
+	& + p, 
+	& + ul, 
+	& + ol {
+		margin-top: .25em;
+	}
+}
+
+ol.body, 
+ul.body {
+	margin-top: 1em;
+	padding-left: $grid * 2;
+	li + li {
+		margin-top: .5em;
+	}
+}
+
+figure.body {
+	margin-top: $grid * 2;
+	img + img {
+		margin-top: $grid;
+	}
+}
+
+ol.body {
+	counter-reset: myCounter;
+	li {
+		text-indent: -18px;
+	}
+	li:before {
+		content: counter(myCounter)'. ';
+		counter-increment: myCounter;
+		font-weight: $weight-bold;
+		//margin-right: .3em;
+		width: 24px;
+		//font-size: $size-s;
+	}
+}
+
+ul.body {
+	padding-left: $grid * 2;
+	li {
+		list-style-type: disc;
+		strong {
+			font-weight: $weight-bold;
+		}
+	}
+}
+
+
+
 .featured-image {
 	clear:both;
 	margin: $grid * 3 0 $grid * 2 0;
@@ -431,12 +504,15 @@ img.uto {
 	display: block;
 }
 
-.desc {
+.desc, 
+p.body {
 	margin-top: $grid * 2;
 	@include respond-tablet {
 		margin-top: 0;
 	}
 }
+
+
 
 .section p span { 
 	display: block;
@@ -594,7 +670,8 @@ RESPOND
 	body { 
 		font-size: 120%;
 	}
-	.desc { font-size: .8em; }
+	.desc, 
+	p.body { font-size: .8em; }
 	
 	.intro .bio { 
 		margin: 0 0 $spacer * 2 0;
