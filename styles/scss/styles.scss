@@ -521,6 +521,9 @@ h3.body {
     font-size: 1.3em;
     border-bottom: 1px solid;
     padding-bottom: .5em;
+    strong {
+	    color: #ffc934;
+    }
     @include respond-tablet {
 	    font-size: 1em;
 	    margin-top: 2.5em;
