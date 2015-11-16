@@ -84,6 +84,10 @@ a.button {
 	border-radius: 2px;
 	margin-top: $grid * 3;
 	font-size: $size-s;
+	@include respond-desktop {
+		margin-top: $grid * 6;
+		float: left;
+	}
 }
 
 p { 
