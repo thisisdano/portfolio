@@ -71,6 +71,35 @@ body.case-study {
 			padding-top: 0;
 		}
 	}
+	@include respond-tablet {
+		.project-title {
+			font-weight: 300;
+			font-size: 2em;
+			line-height: 1.2;
+			strong {
+				font-weight: 700;
+			}
+		}
+	}
+	.project-title  {
+		.tag {
+			display: block;
+			float: left;
+			font-size: 12px;
+			padding: 4px;
+			border: 1px solid;
+			margin-bottom: $grid;
+		}
+		.primary {
+			display: block;
+			clear: both;
+		}
+		.secondary {
+			display: block;
+			clear: both;
+			color: #444;
+		}
+	}
 }
 
 #hello { 
@@ -471,10 +500,10 @@ SECTIONS
 
 .section-body {
 	@include respond-tablet { 
-		margin-top: $grid * 11;
+		margin-top: $grid * 25;
 	}
 	@include respond-desktop { 
-		margin-top: $grid * 15;
+		margin-top: $grid * 30;
 	}
 	p.body {
 		@include respond-tablet {
