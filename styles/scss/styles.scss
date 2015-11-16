@@ -50,6 +50,29 @@ body {
 	overflow-x: hidden;
 }
 
+body.case-study {
+	background-color: black;
+	font-weight: 300;
+	color: white;
+	.section ul.specs li {
+		color: white;
+	}
+	a {
+		text-decoration: none;
+		strong {
+			font-weight: 400;
+			color: $color-blue;
+		}
+	}
+	.section {
+		@include respond-mobile { 
+			border-top: none;
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
+}
+
 #hello { 
 	margin: 0 auto;
 	padding: 0 $grid *2;
@@ -458,7 +481,7 @@ SECTIONS
 			margin-bottom: 1em;
 		}
 		@include respond-desktop {
-			font-size: 1em;
+			font-size: 1.15em;
 			margin-bottom: 1.3em;
 		}
 	}
@@ -472,6 +495,7 @@ h3.body {
     @include respond-tablet {
 	    font-size: 1em;
 	    margin-top: 2.5em;
+	    font-weight: 700;
     }
     & + p {
 	    @include respond-tablet {
@@ -524,9 +548,12 @@ ul.body {
 		margin-top: .5em;
 	}
 	@include respond-tablet {
-		max-width: 37em;
+		max-width: 45em;
 		margin-left: $grid * 2;
 		margin-top: 1em;
+	}
+	@include respond-desktop {
+		font-size: 1.15em;
 	}
 	& + p {
 		margin-top: 1em;
