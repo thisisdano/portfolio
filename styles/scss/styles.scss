@@ -99,6 +99,9 @@ body.case-study {
 			clear: both;
 			color: #444;
 		}
+		@include respond-tablet {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -500,10 +503,10 @@ SECTIONS
 
 .section-body {
 	@include respond-tablet { 
-		margin-top: $grid * 25;
+		margin-top: $grid * 20;
 	}
 	@include respond-desktop { 
-		margin-top: $grid * 30;
+		margin-top: $grid * 25;
 	}
 	p.body {
 		@include respond-tablet {
@@ -528,6 +531,16 @@ h3.body {
 	    font-size: 1em;
 	    margin-top: 2.5em;
 	    font-weight: 700;
+	    border-bottom: none;
+	    padding-bottom: 1em;
+	    float: left;
+	    &:after {
+		    content: '';
+		    display: block;
+		    width: 100%;
+		    height: 8px;
+		    border-bottom: 1px solid;
+	    }
     }
     & + p {
 	    @include respond-tablet {
@@ -542,9 +555,14 @@ h3.body {
 h4.body {
 	margin-top: 1.5em;
 	font-weight: $weight-bold;
+	clear: both;
+	@include respond-tablet {
+	    padding-top: 1.5em;
+	    margin-top: 0;
+   		font-size: .8em;
+	}
 	@include respond-desktop {
-		margin-top: 2.5em;
-		font-size: .8em;
+	    font-size: .8em;
 	}
 	& + p, 
 	& + ul, 
@@ -618,6 +636,7 @@ ol.body {
 			width: 32px;
 		}
 	}
+
 }
 
 ul.body {
@@ -629,6 +648,11 @@ ul.body {
 			@include respond-desktop {
 				font-weight: 400;
 			}
+		}
+	}
+	& + h4.body {
+		@include respond-tablet {
+			padding-top: 3em;
 		}
 	}
 }
