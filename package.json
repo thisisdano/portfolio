@@ -27,6 +27,7 @@
   },
   "homepage": "http://texttile.net",
   "devDependencies": {
+    "browser-sync": "^2.10.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-jshint": "^1.12.0",
