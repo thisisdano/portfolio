@@ -303,7 +303,7 @@ INTRO + THUMBNAILS
 }
 
 .contact {
-	border-top: 1px solid;
+//	border-top: 1px solid;
 	margin-top: $grid;
 	padding-top: $grid;
 	@include respond-tablet {
@@ -321,7 +321,7 @@ INTRO + THUMBNAILS
 		padding-top: $grid / 2;
 	}
 	@include respond-desktop {
-		padding-right: .75em;
+		padding-right: .5em;
 	}
 }
 
