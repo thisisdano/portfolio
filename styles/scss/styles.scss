@@ -316,8 +316,12 @@ INTRO + THUMBNAILS
 	@include size($size-xxs);
 	display: inline-block;
 	padding-right: $spacer;
+	@include respond-mobile {
+		display: block;
+		padding-top: $grid / 2;
+	}
 	@include respond-desktop {
-		padding-right: .3em;
+		padding-right: .75em;
 	}
 }
 
