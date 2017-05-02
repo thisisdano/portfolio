@@ -23,7 +23,7 @@ $weight-bold: 700;
 }
 
 
-/* 
+/*
 --------------
 
 BASICS
@@ -42,7 +42,7 @@ BASICS
 	}
 }
 
-body { 
+body {
 	margin: 0;
 	background-color: white;
 	color: $color-blue;
@@ -65,7 +65,7 @@ body.case-study {
 		}
 	}
 	.section {
-		@include respond-mobile { 
+		@include respond-mobile {
 			border-top: none;
 			margin-top: 0;
 			padding-top: 0;
@@ -105,7 +105,7 @@ body.case-study {
 	}
 }
 
-#hello { 
+#hello {
 	margin: 0 auto;
 	padding: 0 $grid *2;
 	width: auto;
@@ -120,11 +120,11 @@ body.case-study {
 	}
 }
 
-a:link, a:visited { 
+a:link, a:visited {
 	color: $color-pink;
 }
 
-a:hover { 
+a:hover {
 	color: $color-blue;
 }
 
@@ -151,22 +151,22 @@ a.button {
 	}
 }
 
-p { 
+p {
 	margin: 0;
 	clear: both;
 }
 
-em { 
+em {
 	font-style: italic;
 }
 
-h1 { 
-	margin: $grid * 11 auto $grid * 17 auto; 
-	font-weight: normal; 
+h1 {
+	margin: $grid * 11 auto $grid * 17 auto;
+	font-weight: normal;
 	font-size: 2.4em;
 	border-bottom: 3px solid;
-	width: 7.3em; 
-	text-align: center; 
+	width: 7.3em;
+	text-align: center;
 	transform: rotate(-45deg);
 	position: relative;
 	color: rgba(0,0,0,.8);
@@ -258,6 +258,9 @@ figure.body img.img-m-9 {
 	}
 }
 
+figure.slide {
+	background-color: transparent !important;
+}
 
 /*
 strong a, p a, .links a {
@@ -282,7 +285,7 @@ strong a, p a, .links a {
 
 
 
-/* 
+/*
 --------------
 
 INTRO + THUMBNAILS
@@ -290,7 +293,7 @@ INTRO + THUMBNAILS
 --------------
 */
 
-.intro { 
+.intro {
 	overflow: auto;
 	width: 100%;
 	position: relative;
@@ -400,7 +403,7 @@ INTRO + THUMBNAILS
 
 
 
-/* 
+/*
 --------------
 
 SECTIONS
@@ -408,14 +411,14 @@ SECTIONS
 --------------
 */
 
-.section { 
+.section {
 	clear: both;
 	//overflow: hidden;
 	padding-top: $grid * 2;
 	@include respond-mobile {
 		border-top: $grid * 5 solid;
 		margin-top: $grid * 3;
-		margin: 0 (-$grid * 2) 0; 
+		margin: 0 (-$grid * 2) 0;
 		padding: $grid * 4 $grid * 2 0;
 	}
 	@include respond-tablet {
@@ -425,11 +428,11 @@ SECTIONS
 	}
 }
 
-.project-title { 
+.project-title {
 	@include respond-mobile {
 		padding-bottom: $grid * 1;
 		font-size: 1.3em;
-	    line-height: 1.3;	
+	    line-height: 1.3;
 	    //border-bottom: 1px solid;
 	}
 	/*
@@ -453,9 +456,9 @@ SECTIONS
 		line-height: 1.1;
 		margin-bottom: $grid;
 	}
-} 
+}
 
-.specs { 
+.specs {
 	margin-top: 0;
 	@include respond-tablet {
 		margin-top: 0;
@@ -466,7 +469,7 @@ SECTIONS
 	}
 }
 
-.specs li { 
+.specs li {
 	@include respond-mobile {
 		display: none;
 		white-space: nowrap;
@@ -480,7 +483,7 @@ SECTIONS
 		}
 	}
 	@include respond-tablet {
-		color: $color-blue; 
+		color: $color-blue;
 		border-bottom: 1px solid;
 		margin-left: $grid * 4;
 		margin-bottom: $grid / 2;
@@ -497,19 +500,19 @@ SECTIONS
 			order: -1;
 		}
 	}
-	@include respond-tablet { 
+	@include respond-tablet {
 		margin-top: $grid * 11;
 	}
-	@include respond-desktop { 
+	@include respond-desktop {
 		margin-top: 0;
 	}
 }
 
 .section-body {
-	@include respond-tablet { 
+	@include respond-tablet {
 		margin-top: $grid * 20;
 	}
-	@include respond-desktop { 
+	@include respond-desktop {
 		margin-top: $grid * 25;
 	}
 	p.body {
@@ -568,8 +571,8 @@ h4.body {
 	@include respond-desktop {
 	    font-size: .8em;
 	}
-	& + p, 
-	& + ul, 
+	& + p,
+	& + ul,
 	& + ol {
 		margin-top: .25em;
 	}
@@ -583,7 +586,7 @@ h4.body {
 
 
 p.body,
-ol.body, 
+ol.body,
 ul.body {
 	@include respond-tablet {
 		//font-size: 1.15em;
@@ -594,7 +597,7 @@ p.body {
 	//max-width: 33em;
 }
 
-ol.body, 
+ol.body,
 ul.body {
 	margin-top: 1em;
 	padding-left: $grid * 3;
@@ -730,7 +733,7 @@ img.uto {
 	display: block;
 }
 
-.desc, 
+.desc,
 p.body {
 	margin-top: $grid * 2;
 	@include respond-tablet {
@@ -740,7 +743,7 @@ p.body {
 
 
 
-.section p span { 
+.section p span {
 	display: block;
 	font-size: $size-xs;
 	line-height: 1.5;
@@ -751,26 +754,26 @@ p.body {
 	}
 }
 
-.section p + ul { 
+.section p + ul {
 	float: none;
-	width: 100%; 
+	width: 100%;
 	overflow: hidden;
 	margin-bottom: 0;
 }
-.section p + ul li { 
+.section p + ul li {
 	float: right;
 	padding: 0 0 0 0;
 	margin-bottom: $grid;
 	width: auto;
 	max-width: 100%;
-	//border: 1px solid; 
+	//border: 1px solid;
 }
 
-.section p + ul li:last-child { 
+.section p + ul li:last-child {
 	margin-bottom: 0;
 }
 
-.section p + ul li a:link img, .section p + ul li a:visited img { 
+.section p + ul li a:link img, .section p + ul li a:visited img {
 	max-width: 100%;
 	height: auto;
 	display: block;
@@ -778,7 +781,7 @@ p.body {
 .section p + ul li a:hover img { }
 
 
-/* 
+/*
 --------------
 
 FOOTER
@@ -786,7 +789,7 @@ FOOTER
 --------------
 */
 
-#footer { 
+#footer {
 	margin: $grid * 12 $grid $spacer $grid;
 	&:before {
 		@include respond-mobile {
@@ -802,11 +805,11 @@ FOOTER
 		}
 	}
 }
-#footer p { 
+#footer p {
 	margin: 0;
 	font-size: .8em;
-} 
-p.nav { 
+}
+p.nav {
 	padding-top: $grid * 2;
 	@include respond-tablet {
 		padding-top: 0;
@@ -818,7 +821,7 @@ p.nav {
 	display: none;
 }
 
-/* 
+/*
 --------------
 
 RESPOND
@@ -828,22 +831,22 @@ RESPOND
 
 @include respond-tablet {
 	body { font-size: 100%; }
-	
+
 	.intro .bio { padding-top: $grid * 4; }
-	
-	.intro .bio, 
-	.section p { 
+
+	.intro .bio,
+	.section p {
 		margin: 0 0 $spacer * 2 0;
 	}
-	h1 { 
+	h1 {
 		margin: 104px 0px 120px -56px;
 		float: left;
 	}
 	.section {
 		overflow: hidden;
 		padding: $spacer 0;
-		ul { 
-			margin-right: -7px; 
+		ul {
+			margin-right: -7px;
 		}
 		ul.nav {
 			$nav-width: 75%;
@@ -852,11 +855,11 @@ RESPOND
 			padding-top: $grid * 7;
 		}
 		h2 {
-			line-height: 1; 
-			margin-bottom: 0; 
+			line-height: 1;
+			margin-bottom: 0;
 		}
-		ul.specs { 
-			margin-top: 3px; 
+		ul.specs {
+			margin-top: 3px;
 			margin-bottom: $grid * 4;
 		}
 	}
@@ -866,8 +869,8 @@ RESPOND
 	#t2t .featured-image {
 		clear: both;
 		height: 200px;
-	} 
-	.section ul.specs li { 
+	}
+	.section ul.specs li {
 		transform: rotate(-45deg);
 		margin-left: -$grid * 6;
 		margin-bottom: 0;
@@ -893,49 +896,49 @@ RESPOND
 }
 
 @include respond-desktop {
-	body { 
+	body {
 		font-size: 120%;
 	}
-	.desc, 
+	.desc,
 	p.body { font-size: .8em; }
-	
-	.intro .bio { 
+
+	.intro .bio {
 		margin: 0 0 $spacer * 2 0;
 	}
-	h1 { 
+	h1 {
 		margin: 104px 32px 120px -184px;
 		float: left;
 	}
-	.intro ul.info li { 
+	.intro ul.info li {
 		margin-left: 0;
 	}
-	ul.thumbnails { 
+	ul.thumbnails {
 		padding: 54px 0;
 		display: block;
 	}
-	ul.thumbnails img { 
+	ul.thumbnails img {
 		height: auto;
 		width: auto;
 	}
-	ul.thumbnails li { 
+	ul.thumbnails li {
 		min-height: 288px;
 		max-width: 155px;
 		a img { width: 100%; }
 	}
-	.section { 
+	.section {
 		margin-top: $spacer * 2;
 		padding-bottom: $spacer;
 		padding-left: 0;
 		padding-right: 0;
 	}
-	.section h2 { 
+	.section h2 {
 		width: 60%;
 		padding: 14px 0 0 0;
 		margin-bottom: $grid * 6;
 		font-size: 1em;
-		line-height: 1.3; 
+		line-height: 1.3;
 	}
-	.section-content p { 
+	.section-content p {
 		margin: 0;
 		float: none;
 		clear: both;
@@ -947,33 +950,33 @@ RESPOND
 	        margin-top: 1px;
 		    //border-top: 1px solid;
 		    padding-top: $grid / 2;
-	    }	
+	    }
 	}
 	.section .featured-image {
-		display: block; 
+		display: block;
 		float: left;
 	}
 	#t2t .featured-image {
 		height: 324px;
 		margin: 0 0 0 0;
 		margin-top: $grid * 5;
-	} 
-		
-	.section ul.specs { 
+	}
+
+	.section ul.specs {
 		width: auto;
 		margin-right: 0;
 		float: left;
 		padding: $grid 0 0 0;
 		margin-bottom: 0;
 	}
-	.section ul.specs { 
-		margin-top: 0; 
-		padding-left: $grid * 8; 
-		margin-right: -18px; 
-		float: right; 
+	.section ul.specs {
+		margin-top: 0;
+		padding-left: $grid * 8;
+		margin-right: -18px;
+		float: right;
 	}
 
-	.section ul.specs li { 
+	.section ul.specs li {
 		width: 130px;
 		font-size: 12px;
 		padding-bottom: 0;
@@ -991,9 +994,9 @@ RESPOND
 		padding-top: $grid;
 		display: none;
 	}
-	.section ul.nav li { 
-		width: auto; 
-		padding: 0 $grid / 4; 
+	.section ul.nav li {
+		width: auto;
+		padding: 0 $grid / 4;
 		&:last-child { padding-right: 0; }
 		a { font-size: 1.2em; }
 	}
@@ -1006,23 +1009,23 @@ RESPOND
 		width: auto;
 	}
 
-	.section ul + ul li a { 
+	.section ul + ul li a {
 		width: 4.5em;
 		float: left;
 		margin-right: 0;
 	}
 
-	.section ul + ul li + li a { 
+	.section ul + ul li + li a {
 		margin-left:0;
 	}
-	.section ul + ul li + li + li a { 
+	.section ul + ul li + li + li a {
 		margin-left: 0;
 	}
 	.specs ul li {
 		float: left;
 		width: 130px;
 	}
-	.section ul.specs li { 
+	.section ul.specs li {
 		transform: rotate(-45deg);
 		margin-left: -64px;
 		margin-bottom: 0;
@@ -1030,32 +1033,32 @@ RESPOND
 	}
 	.section p { clear: left; }
 
-	.section p + ul { 
+	.section p + ul {
 		float: none;
-		width: auto; 
+		width: auto;
 		overflow: auto;
-		margin-top: $grid * 5; 
+		margin-top: $grid * 5;
 	}
 	div.uto { display: none; }
-	.section p + ul li { 
+	.section p + ul li {
 		padding: 0 10px 10px 0;
-		border: none; 
+		border: none;
 		margin-bottom: 0;
 		float: left;
 		height: 133px;
 		width: auto;
 	}
-	.section p + ul li a:link img, .section p + ul li a:visited img { 
+	.section p + ul li a:link img, .section p + ul li a:visited img {
 		border: 1px solid transparent;
 		height: 133px;
 		width: auto;
 	}
-	.section p + ul li a:hover img { 
+	.section p + ul li a:hover img {
 		border: 1px solid $color-blue;
 	}
-	
+
 	#footer {
-		padding: $spacer 0; 
+		padding: $spacer 0;
 		margin: $grid * 6 0 $grid * 4 0;
 		font-size: .75em;
 	}
